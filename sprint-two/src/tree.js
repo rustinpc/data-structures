@@ -18,11 +18,32 @@ treeMethods.addChild = function(value){
 };
 
 treeMethods.contains = function(target){
-  var result = false;
-  if (this.value = target) {
-    result = true;
+  //check if obj's value === target value
+  if (this.value === target) {
+  // return true
+    return true;
+  } // if obj's value !== target value
+  else {
+    if (this.children === undefined) {
+      return false;
+    }
+    else {
+      for (var i = 0; i < this.children.length; i++) {
+        return this.children[i].contains(target);
+      }
+    }
   }
-  return result;
+  // check if obj has children;
+  //      if obj has children
+  //          check if children's value == target
+  //          return true
+  //
+  //          if children's value !== target;
+  //            check child's child (recursive)
+  //
+  //      if obj doesn't have chidlren
+  //          return false;
+
 
 };
 
