@@ -27,7 +27,9 @@ var makeLinkedList = function(){
 // Complexity: Linear
   list.contains = function(target,obj) {
     var obj = obj || list.head;
-
+    if (obj === null){
+      return false;
+    }
     if (obj.value === target) {
       return true;
     }
