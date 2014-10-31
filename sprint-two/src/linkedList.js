@@ -14,18 +14,25 @@ var makeLinkedList = function(){
   };
 
   list.removeHead = function(){
+    if (list.head !== null) {
       result = list.head.value;
       list.head = list.head.next;
       return result;
+    }
   };
 
   list.contains = function(target){
-    var result = false;
-    for (var key in list) {
-      var values = list[key].value;
-      if (values === target) {
-        result = true;
-      }
+    var obj = arguments[1] || list.head;
+    var result = arguments[2] || false;
+    debugger;
+
+    if (obj.value === target) {
+      result = true;
+      console.log(obj);
+      console.log(list.tail);
+    }
+    if (result === false && obj!== list.tail) {
+      list.contains(target,obj.next,result);
     }
     return result;
   };
