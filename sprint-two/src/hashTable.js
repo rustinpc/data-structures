@@ -25,6 +25,7 @@ HashTable.prototype.retrieve = function(k){
       return currentValue[index][k];
     }
   }
+  return null;
 };
 
 HashTable.prototype.remove = function(k){
@@ -32,23 +33,11 @@ HashTable.prototype.remove = function(k){
   var currentValue = this._storage.get(i);
   for (var index = 0; index < currentValue.length; index ++) {
     if (currentValue[index][k]) {
-
+      currentValue.splice(index, 1);
+      this._storage.set(i, currentValue);
     }
   }
-
-
-
-  // this._storage.each(function(value, index, storageArray) {
-  //   if (index === i) {
-  //     storageArray[index] = null;
-  //   }
-  // });
-  // take key passed in, get unique id with hash fx
-  // take unique hash id and remove value from storage array based on hash index id;
 };
-
-
-
 
 
 /*
